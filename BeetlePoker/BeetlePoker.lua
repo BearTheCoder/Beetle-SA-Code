@@ -7,11 +7,11 @@ function SendChatMessage()
   ChatMsg = 'A poker hand is being dealt! Use command !deal '
       .. '{amount} to be dealt a hand!';
   writeChat(ChatMsg);
-  getChatMessages(ParticipationTime, readChat);
+  getChatMessages(ParticipationTime, ReadChat);
   ShuffleCards();
 end
 
-function readChat(user, msg)
+function ReadChat(user, msg)
   if string.find(msg, "!deal") then
 
 

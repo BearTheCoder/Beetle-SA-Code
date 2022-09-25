@@ -5,6 +5,13 @@
     "addEvent",
     "keepAlive",
     "writeChat",
-    "getChatMessages"
+    "getChatMessages",
+    "data",
+    "setProperty",
+    "save"
+  ],
+  "Lua.diagnostics.disable": [
+    "missing-parameter",
+    "discard-returns"
   ]
 }
