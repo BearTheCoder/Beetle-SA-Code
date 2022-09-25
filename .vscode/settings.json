@@ -1,0 +1,10 @@
+{
+  "Lua.diagnostics.globals": [
+    "log",
+    "runCommand",
+    "addEvent",
+    "keepAlive",
+    "writeChat",
+    "getChatMessages"
+  ]
+}
