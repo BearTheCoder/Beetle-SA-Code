@@ -1,10 +1,12 @@
 function ReadChatMsg(user, message)
   log(message);
-  log(data.Test);
+  local mData = get('data');
+  log(mData.Test);
 end
 
 function CallData()
-  log(data.Test);
+  local mData = get('data');
+  log(mData.Test);
 end
 
 return function()

@@ -11,7 +11,9 @@
     "runCommand",
     "applyImage",
     "wait",
-    "getApp"
+    "getApp",
+    "get",
+    "set"
   ],
   "Lua.diagnostics.disable": ["missing-parameter", "discard-returns"]
 }
