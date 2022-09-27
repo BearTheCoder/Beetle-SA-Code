@@ -1,17 +1,17 @@
 {
   "Lua.diagnostics.globals": [
     "log",
-    "runCommand",
     "addEvent",
     "keepAlive",
+    "save",
+    "setProperty",
+    "data",
     "writeChat",
     "getChatMessages",
-    "data",
-    "setProperty",
-    "save"
+    "runCommand",
+    "applyImage",
+    "wait",
+    "getApp"
   ],
-  "Lua.diagnostics.disable": [
-    "missing-parameter",
-    "discard-returns"
-  ]
+  "Lua.diagnostics.disable": ["missing-parameter", "discard-returns"]
 }

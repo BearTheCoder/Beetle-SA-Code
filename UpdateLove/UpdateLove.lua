@@ -8,21 +8,47 @@
     Type "lua" into the command line to access the debug console.
 --]]
 
+Love = nil;
+App = nil;
+MyObject = nil;
 
-function DetectDataLove()
-  load(); -- check header (1)
-  if (data.Love ~= nil) then return end
-  setProperty(data, 'Love', 0); -- check header (3)
-  save(); -- check header (2)
+function LoadStatusBar()
+  Pos = App.convertPercentToPosition(0.5, 0.5);
+  MyObject.setPosition(Pos.x, Pos.y);
+  local ImageName = 'HealthBar' .. Love;
+  applyImage(MyObject, ImageName);
+  log("Status bar loaded...");
 end
 
 function ReadChatEvent(user, MyMessage)
-  log(MyMessage);
+  log('Message recieved...');
+  if (string.find(MyMessage, 'FillLovePlease') == nil) then
+    log('Message contains nil value ...');
+    if (Love == 1) then log('LOVE = 1, No adjustments...') return end
+    Love = Love - 1;
+    log('Removing 1 from LOVE...')
+    return
+  end
+  if (Love == 21) then log('LOVE Equal to 21...'); return end
+  Love = Love + 1;
+  log('Adding one to LOVE...');
+  log('Love: ' .. Love);
+  UpdateStatusBar();
+end
+
+function UpdateStatusBar()
+  local ImageName = 'HealthBar' .. Love;
+  log(ImageName);
+  applyImage(MyObject, ImageName);
+  log("Status bar updated...")
 end
 
 return function()
-  log('Update Love Status Bar...'); -- check header (4)
-  DetectDataLove();
+  log('Status bar script loaded...');
+  Love = 1;
+  App = getApp();
+  MyObject = App.createGameObject();
+  LoadStatusBar();
   addEvent('chatMessage', 'ReadChatEvent');
   keepAlive();
 end
